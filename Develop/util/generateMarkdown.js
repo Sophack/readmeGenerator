@@ -3,8 +3,19 @@
 function renderLicenseBadge(license) {
   let badge = "";
   if (license !="None") {
-    badge = "![License Badge](https://shields.io/badge/license-" + license + "-green)";
-  }
+    badge = "![License Badge](https://shields.io/badge/license-" + license + "-green)"
+    }else if (license == 'Apache 2.0') {
+    badge = '![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)'
+    } else if (license == 'GPL v3.0') {
+    badge = '![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)'
+    } else if (license == 'MIT') {
+
+    badge = '![GitHub license](https://img.shields.io/github/license/Naereen/StrapDown.js.svg)'
+    } else {
+      badge = ""
+    }
+
+      return badge;
 }
 
 // TODO: Create a function that returns the license link
@@ -81,7 +92,7 @@ function generateMarkdown(data) {
   Copyright permission granted under: ${data.License}
  
   #Badges
-   Badges: ${data.Badges} 
+   Badges: ${data.Badges}   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
    
   #Features
   List of features: ${data.Features}

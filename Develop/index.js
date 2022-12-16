@@ -3,7 +3,8 @@
 const inquirer = require("inquirer"); 
 const fs = require('fs');
 const util = require("util");
-const generatorMarkdown = require('./util/generatorMarkdown');
+const generateMarkdown = require('./util/generateMarkdown');
+const { table } = require("console");
 
 
 // TODO: Create an array of questions for user input
@@ -11,19 +12,37 @@ const generatorMarkdown = require('./util/generatorMarkdown');
 const questions = [{
         type: "input",
         message: "What is the title of the project?", 
-        name: "Project Title" 
+        name: "Title" 
 },{
     type: "input",
         message: "What is your Github username?", 
         name: "Username"        
 }, {
     type: "input",
-        message: "What is the project about? Please explain your motivation & reasoning", 
-        name: "Description" 
+        message: "Please provide a project description", 
+        name: "Description",
+        validate: (descriptionInput) => {
+            if (descriptionInput) {
+                return true;
+            }else{
+                console.log("Please provide a project description");
+                return false;
+            }
+
+        } 
+
 }, {
-    type: "input",
+    type: "list",
         message: "Do you need a table of contents?", 
-        name: "Table of contents" 
+        name: "Table of contents",
+        choices: ['yes', 'no'],
+        validate: tableContent = () => {
+            if (tableContent){
+                return true;
+            } else {
+                console.log('Please enter either "yes" or "no"')
+            }
+        }
 }, {
     type: "input",
         message: "What are the steps required to install your project?", 
@@ -43,12 +62,13 @@ const questions = [{
     type: "list",
         message: "What licenses are covered?", 
         name: "License" ,  
-        choices: ['MIT', 'ISC', 'GNUPLv3'],
-        filter(val){
-            return val.toLowerCase();
-        }
-        
-},{
+        choices: ['None', 'MIT', 'ISC', 'GPL v3.0', 'Apache 2.0'],
+        validate: licenseInput = () => {
+            if (licenseInput){
+                return true;
+        } else{ console.log("Please select an option")
+    }}},{
+
     type: "input",
         message: "What badges do you have?", 
         name: "Badges" 
@@ -82,12 +102,15 @@ function writeToFile(fileName, data) {
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
-    .then(function(data){
-        writeToFile("README.md", generatorMarkdown(data));
-        console.log(data)
-
-    })
+    .then(function(answer) {
+        console.log(answer);
+    var fileContent = generateMarkdown(answer);
+    writeToFile(fileContent)
+    });
 }
 
 // Function call to initialize app
 init();
+
+//exports: 
+module.exports = questions;
