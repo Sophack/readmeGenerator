@@ -37,3 +37,15 @@ This app can used to build properly formatted and detailed readme files for Gith
 Please follow standard guidelines at: [Contributor Covenant](https://www.contributor-covenant.org/) 
 
 
+## Future development 
+
+The below screenshot shows that the table of contents was functioning properly but the formatting for the headings was not.  
+<img width="514" alt="image" src="https://user-images.githubusercontent.com/114966651/211612422-ac53e7d9-ea8d-4be6-ac33-12065f3fe71f.png">
+
+Once the formatting was fixed for the headings, the formatting is not letting the table of contents become clickable/interactive.
+
+The below screenshot shows the formatting error. Changing the formatting of lines 9 through 11 of the generated ReadMe file did not fix the issue.  
+<img width="1325" alt="image" src="https://user-images.githubusercontent.com/114966651/211613119-776a5fe7-54c1-43d7-ae2c-f22c445b6500.png">
+
+ 
+
