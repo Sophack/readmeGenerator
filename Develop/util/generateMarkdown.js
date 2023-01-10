@@ -72,42 +72,42 @@ function generateMarkdown(data) {
 
   
 
-  #Table of Contents 
-      ##*[Installation](#installation)
-      ##*[Usage](#usage)
-      ##*[Credits](#credits)
+  # Table of Contents 
+      *[Installation](#installation)
+      *[Usage](#usage)
+      *[Credits](#credits)
       ##*[License](#license)
      ##*[Badges](#badges)
      ##*[Features](#features)
      ##*[Contribute](#contribute)
       ##*[Tests](#tests)
 
-  #Description: ${data.Description}
+  # Description: ${data.Description}
 
-  #Installation
+  # Installation
   The following must be installed to run the application: ${data.Installation}
 
-  #Usage
+  # Usage
   To use this app: ${data.Usage}
  
-  #Credits 
+  # Credits 
   Collaborators: ${data.Credits}
 
-  #License 
+  # License 
   Copyright permission granted under: 
   ## ${renderLicenseSection(data.license)} ${renderLicenseBadge(data.license)}
   ### ${renderLicenseLink(data.license)}
  
-  #Badges
+  # Badges
    Badges: ${data.Badges}   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
    
-  #Features
+  # Features
   List of features: ${data.Features}
   
-  #Contribute 
+  # Contribute 
   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
 
-  #Tests 
+  # Tests 
   Required tests: ${data.Tests}
 
   `;
