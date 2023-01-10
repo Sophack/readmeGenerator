@@ -73,14 +73,14 @@ function generateMarkdown(data) {
   
 
   # Table of Contents 
-      *[Installation](#installation)
-      *[Usage](#usage)
-      *[Credits](#credits)
-      ##*[License](#license)
-     ##*[Badges](#badges)
-     ##*[Features](#features)
-     ##*[Contribute](#contribute)
-      ##*[Tests](#tests)
+   ###   * [Installation](#installation)
+   ###  * [Usage](#usage)
+   ###   * [Credits](#credits)
+   ###  * [License](#license)
+   ###   * [Badges](#badges)
+   ###   * [Features](#features)
+   ###   * [Contribute](#contribute)
+   ###   * [Tests](#tests)
 
   # Description: ${data.Description}
 
