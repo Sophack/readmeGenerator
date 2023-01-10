@@ -1,3 +1,4 @@
+
 // TODO: Create a function that returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 function renderLicenseBadge(license) {
@@ -64,23 +65,27 @@ function renderLicenseSection(license) {
 
 
 function generateMarkdown(data) {
-  return `# ${data.title}
+  return `# ${data.Title}
+
+
   https://github.com/${data.Username}/${data.Title}
 
-  #${data.Description}
+  
 
   #Table of Contents 
-  *[Installation](#installation)
-  *[Usage](#usage)
-  *[Credits](#credits)
-  *[License](#license)
-  *[Badges](#badges)
-  *[Features](#features)
-  *[Contribute](#contribute)
-  *[Tests](#tests)
+      ##*[Installation](#installation)
+      ##*[Usage](#usage)
+      ##*[Credits](#credits)
+      ##*[License](#license)
+     ##*[Badges](#badges)
+     ##*[Features](#features)
+     ##*[Contribute](#contribute)
+      ##*[Tests](#tests)
+
+  #Description: ${data.Description}
 
   #Installation
-  The following must be installed to run the application: 
+  The following must be installed to run the application: ${data.Installation}
 
   #Usage
   To use this app: ${data.Usage}
@@ -89,7 +94,9 @@ function generateMarkdown(data) {
   Collaborators: ${data.Credits}
 
   #License 
-  Copyright permission granted under: ${data.License}
+  Copyright permission granted under: 
+  ## ${renderLicenseSection(data.license)} ${renderLicenseBadge(data.license)}
+  ### ${renderLicenseLink(data.license)}
  
   #Badges
    Badges: ${data.Badges}   [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](code_of_conduct.md)
@@ -107,6 +114,3 @@ function generateMarkdown(data) {
 }
 
 module.exports = generateMarkdown;
-
-
-

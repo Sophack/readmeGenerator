@@ -1,10 +1,10 @@
 // TODO: Include packages needed for this application
 
-const inquirer = require("inquirer"); 
+const inquirer = require('inquirer'); 
 const fs = require('fs');
-const util = require("util");
+const util = require('util');
 const generateMarkdown = require('./util/generateMarkdown');
-const { table } = require("console");
+const { table } = require('console');
 
 
 // TODO: Create an array of questions for user input
@@ -18,6 +18,7 @@ const questions = [{
         message: "What is your Github username?", 
         name: "Username"        
 }, {
+        //validate command determines whether user actually answered
     type: "input",
         message: "Please provide a project description", 
         name: "Description",
@@ -59,6 +60,7 @@ const questions = [{
     
         
 }, {
+
     type: "list",
         message: "What licenses are covered?", 
         name: "License" ,  
@@ -100,17 +102,24 @@ function writeToFile(fileName, data) {
 }
 
 // TODO: Create a function to initialize app
+//
 function init() {
     inquirer.prompt(questions)
     .then(function(answer) {
         console.log(answer);
+
+//passing answer into generate markdown
+//file content is the README file 
+    var fileName = answer.Title
+//in the function data is not defined, 
+//answer is an object with both data from generate and user input  
     var fileContent = generateMarkdown(answer);
-    writeToFile(fileContent)
+    writeToFile(fileName, fileContent)
     });
 }
 
 // Function call to initialize app
 init();
 
-//exports: 
+//exporting questions array  
 module.exports = questions;
